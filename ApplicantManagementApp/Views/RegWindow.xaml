@@ -1,0 +1,21 @@
+﻿<Window x:Class="ApplicantManagementApp.Views.RegWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ApplicantManagementApp.Views"
+        mc:Ignorable="d"
+        Title="Регистрация" Height="1080" Width="1920" WindowState="Maximized">
+    <Grid>
+        <StackPanel Width="700" Margin="610,132,610,14">
+            <TextBlock Text="Авторизация" FontSize="36" HorizontalAlignment="Center" />
+            <TextBlock Text="Логин" FontSize="36" />
+            <TextBox FontSize="36" BorderBrush="#FF161617" Name="Login"/>
+            <TextBlock Text="Пароль" FontSize="36" Margin="0,30,0,0"/>
+            <PasswordBox FontSize="36" BorderBrush="#FF161617" Name="Password"/>
+            <Button Content="Зарегистрироваться" FontSize="36" Margin="0,30,0,0" Name="RegButton" Click="RegButton_Click" />
+            <Button Content="Назад" FontSize="36" Margin="0,400,0,0" Name="BackButton" Click="BackButton_Click" Height="80" />
+
+        </StackPanel>
+    </Grid>
+</Window>

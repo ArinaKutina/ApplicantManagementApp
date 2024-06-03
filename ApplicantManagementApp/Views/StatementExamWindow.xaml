@@ -1,0 +1,41 @@
+﻿<Window x:Class="ApplicantManagementApp.Views.StatementExamWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ApplicantManagementApp.Views"
+        mc:Ignorable="d"
+        Title="Подать заявку на вступительные экзамены" Height="1080" Width="1920" WindowState="Maximized">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Выберите специальность" FontSize="24" Margin="30 30 0 0"/>
+            <DataGrid Width="1874" Height="182" x:Name="SpecialityGrid" AutoGenerateColumns="False">
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Выбрать специальность" x:Name="SpecialityButton" Click="SpecialityButton_Click" />
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+                <DataGrid.Columns>
+                    <DataGridTextColumn FontSize="24" Binding="{Binding Path= nameSpeciality}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBox Height="40" Width="680" Margin="0 30 1200 0" x:Name="SpecialityBox"/>
+            <Button x:Name="GetStatementExam" Content="Подать заявку на вступительные экзамены:" FontSize="24" Width="690" Margin="0 30 0 0" Click="GetStatementExam_Click"/>
+            <TextBlock Text="Ваши заявки на вступительные экзамены:" FontSize="24" Margin="30 30 0 0" />
+            <DataGrid Width="1874" Height="182" x:Name="ExamsGrid" AutoGenerateColumns="False">
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Удалить заявку" x:Name="DeleteButton" Click="DeleteButton_Click" />
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+                <DataGrid.Columns>
+                    <DataGridTextColumn FontSize="24" Binding="{Binding Path= Speciality.nameSpeciality }" />
+                    <DataGridTextColumn FontSize="24" Binding="{Binding Path= Users.surnameUser}" />
+                    <DataGridTextColumn FontSize="24" Binding="{Binding Path= Users.nameUser}" />
+                    <DataGridTextColumn FontSize="24" Binding="{Binding Path= Users.patronimicUser}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="BackButton" Content="Назад" FontSize="24" Width="690" Margin="0 300 0 0" Click="BackButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

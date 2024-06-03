@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище ApplicantManagementSystemModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="EnrolledUsers">
+    <Key>
+      <PropertyRef Name="idRate" />
+    </Key>
+    <Property Name="idUser" Type="int" Nullable="false" />
+    <Property Name="idSpeciality" Type="int" Nullable="false" />
+    <Property Name="idRate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Rate" Type="int" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="idRole" />
+    </Key>
+    <Property Name="idRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nameRole" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Speciality">
+    <Key>
+      <PropertyRef Name="idSpeciality" />
+    </Key>
+    <Property Name="idSpeciality" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nameSpeciality" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Statements">
+    <Key>
+      <PropertyRef Name="idStatement" />
+    </Key>
+    <Property Name="idStatement" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idUser" Type="int" Nullable="false" />
+    <Property Name="idStatus" Type="int" Nullable="false" />
+    <Property Name="idSpeciality" Type="int" />
+  </EntityType>
+  <EntityType Name="StatementsExams">
+    <Key>
+      <PropertyRef Name="idStatementExam" />
+    </Key>
+    <Property Name="idStatementExam" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idSpeciality" Type="int" Nullable="false" />
+    <Property Name="idUser" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="idStatus" />
+    </Key>
+    <Property Name="idStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nameStatus" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="idUser" />
+    </Key>
+    <Property Name="idUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="surnameUser" Type="nvarchar(max)" />
+    <Property Name="nameUser" Type="nvarchar(max)" />
+    <Property Name="patronimicUser" Type="nvarchar(max)" />
+    <Property Name="telephoneNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="passportNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="idRole" Type="int" Nullable="false" />
+    <Property Name="pass" Type="nvarchar" MaxLength="100" />
+    <Property Name="login" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_EnrolledUsers_Speciality">
+    <End Role="Speciality" Type="Self.Speciality" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EnrolledUsers" Type="Self.EnrolledUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Speciality">
+        <PropertyRef Name="idSpeciality" />
+      </Principal>
+      <Dependent Role="EnrolledUsers">
+        <PropertyRef Name="idSpeciality" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EnrolledUsers_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="EnrolledUsers" Type="Self.EnrolledUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="EnrolledUsers">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Statements_Speciality">
+    <End Role="Speciality" Type="Self.Speciality" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Statements" Type="Self.Statements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Speciality">
+        <PropertyRef Name="idSpeciality" />
+      </Principal>
+      <Dependent Role="Statements">
+        <PropertyRef Name="idSpeciality" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Statements_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Statements" Type="Self.Statements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="idStatus" />
+      </Principal>
+      <Dependent Role="Statements">
+        <PropertyRef Name="idStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Statements_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Statements" Type="Self.Statements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="Statements">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StatementsExams_Speciality">
+    <End Role="Speciality" Type="Self.Speciality" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="StatementsExams" Type="Self.StatementsExams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Speciality">
+        <PropertyRef Name="idSpeciality" />
+      </Principal>
+      <Dependent Role="StatementsExams">
+        <PropertyRef Name="idSpeciality" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StatementsExams_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="StatementsExams" Type="Self.StatementsExams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="StatementsExams">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="idRole" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="idRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ApplicantManagementSystemModelContainer">
+    <EntitySet Name="EnrolledUsers" EntityType="Self.EnrolledUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Speciality" EntityType="Self.Speciality" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Statements" EntityType="Self.Statements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StatementsExams" EntityType="Self.StatementsExams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_EnrolledUsers_Speciality" Association="Self.FK_EnrolledUsers_Speciality">
+      <End Role="Speciality" EntitySet="Speciality" />
+      <End Role="EnrolledUsers" EntitySet="EnrolledUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EnrolledUsers_Users" Association="Self.FK_EnrolledUsers_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="EnrolledUsers" EntitySet="EnrolledUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Statements_Speciality" Association="Self.FK_Statements_Speciality">
+      <End Role="Speciality" EntitySet="Speciality" />
+      <End Role="Statements" EntitySet="Statements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Statements_Status" Association="Self.FK_Statements_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Statements" EntitySet="Statements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Statements_Users" Association="Self.FK_Statements_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Statements" EntitySet="Statements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StatementsExams_Speciality" Association="Self.FK_StatementsExams_Speciality">
+      <End Role="Speciality" EntitySet="Speciality" />
+      <End Role="StatementsExams" EntitySet="StatementsExams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StatementsExams_Users" Association="Self.FK_StatementsExams_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="StatementsExams" EntitySet="StatementsExams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

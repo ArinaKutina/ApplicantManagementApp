@@ -1,0 +1,30 @@
+﻿<Window x:Class="ApplicantManagementApp.Views.AddEnrolleeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ApplicantManagementApp.Views"
+        mc:Ignorable="d"
+        Title="Добавить абитуриента" Height="1080" Width="1920" WindowState="Maximized" >
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Логин" FontSize="19" Margin="30 50 0 0"/>
+            <TextBox Height="40" Width="680" Margin="0 0 1200 0" x:Name="LoginBox" />
+            <TextBlock Text="Пароль" FontSize="19" Margin="30 0 0 0"/>
+            <PasswordBox Height="40" Width="680" Margin="0 0 1200 0" x:Name="PassBox" />
+            <TextBlock Text="Фамилия" FontSize="19" Margin="30 0 0 0"/>
+            <TextBox Height="40" Width="680" Margin="0 0 1200 0" x:Name="SurnameBox" />
+            <TextBlock Text="Имя" FontSize="19" Margin="30 0 0 0"/>
+            <TextBox Height="40" Width="680" Margin="0 0 1200 0" x:Name="NameBox" />
+            <TextBlock Text="Отчество (при наличии)" FontSize="19" Margin="30 0 0 0"/>
+            <TextBox Height="40" Width="680" Margin="0 0 1200 0" x:Name="PatronimicBox"/>
+            <TextBlock Text="Номер телефона" FontSize="19" Margin="30 0 0 0"/>
+            <TextBox Height="40" Width="680" Margin="0 0 1200 0" x:Name="TelephoneBox"/>
+            <TextBlock Text="Номер паспорта" FontSize="19" Margin="30 0 0 0"/>
+            <TextBox Height="40" Width="680" Margin="0 0 1200 0" x:Name="PassportBox"/>
+            <Button x:Name="AddButton" Content="Добавить абитуриента" FontSize="24" Margin="0 350 0 0" Width="1136" Click="AddButton_Click" />
+            <Button x:Name="BackButton" Content="Назад" FontSize="24" Margin="0 30 0 0" Width="1136" Click="BackButton_Click" />
+
+        </StackPanel>
+    </Grid>
+</Window>

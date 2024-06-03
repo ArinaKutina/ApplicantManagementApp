@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e2bc4904ba1f4e8abcb517a409bcab64" Name="Diagram1">
+        <EntityTypeShape EntityType="ApplicantManagementSystemModel.EnrolledUsers" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ApplicantManagementSystemModel.Roles" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ApplicantManagementSystemModel.Speciality" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="ApplicantManagementSystemModel.Statements" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ApplicantManagementSystemModel.StatementsExams" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ApplicantManagementSystemModel.Status" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ApplicantManagementSystemModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ApplicantManagementSystemModel.Users" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="ApplicantManagementSystemModel.FK_EnrolledUsers_Speciality" ManuallyRouted="false" />
+        <AssociationConnector Association="ApplicantManagementSystemModel.FK_EnrolledUsers_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ApplicantManagementSystemModel.FK_Users_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="ApplicantManagementSystemModel.FK_Statements_Speciality" ManuallyRouted="false" />
+        <AssociationConnector Association="ApplicantManagementSystemModel.FK_StatementsExams_Speciality" ManuallyRouted="false" />
+        <AssociationConnector Association="ApplicantManagementSystemModel.FK_Statements_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="ApplicantManagementSystemModel.FK_Statements_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ApplicantManagementSystemModel.FK_StatementsExams_Users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

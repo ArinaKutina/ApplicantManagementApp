@@ -1,0 +1,17 @@
+﻿<Window x:Class="ApplicantManagementApp.Views.AddUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ApplicantManagementApp.Views"
+        mc:Ignorable="d"
+        Title="Добавление нового пользователя" Height="350" Width="420">
+    <Grid>
+        <StackPanel>
+            <Button x:Name="AdminButton" FontSize="19" Content="Добавить администратора" Margin="0 30 0 0" Width="301" Click="AdminButton_Click" />
+            <Button x:Name="EditorButton" FontSize="19" Content="Добавить редактора" Margin="0 10 0 0" Width="301" Click="EditorButton_Click" />
+            <Button x:Name="EnrolleeButton" FontSize="19" Content="Добавить абитуриента" Margin="0 10 0 0" Width="301" Click="EnrolleeButton_Click" />
+            <Button x:Name="BackButton" FontSize="19" Content="Назад" Margin="0 120 0 0" Width="301" Click="BackButton_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

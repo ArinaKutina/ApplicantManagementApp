@@ -1,0 +1,29 @@
+﻿<Window x:Class="ApplicantManagementApp.Views.RatingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ApplicantManagementApp.Views"
+        mc:Ignorable="d"
+        Title="Рейтинг абитуриентов" Height="1080" Width="1920" WindowState="Maximized">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Выберите специальность:" FontSize="24" Margin="30 30 0 0" />
+            <DataGrid Width="1874" Height="182" x:Name="SpecialityGrid" AutoGenerateColumns="False" SelectedCellsChanged="SpecialityGrid_SelectedCellsChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn FontSize="24" Binding="{Binding Path= nameSpeciality}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBlock Text="Рейтинг абитуриентов по выбранной специальности:" FontSize="24" Margin="30 30 0 0" />
+            <DataGrid Width="1874" Height="482" x:Name="RatingGrid" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn FontSize="24" Binding="{Binding Path= Users.surnameUser}" />
+                    <DataGridTextColumn FontSize="24" Binding="{Binding Path= Users.nameUser}" />
+                    <DataGridTextColumn FontSize="24" Binding="{Binding Path= Users.patronimicUser}" />
+                    <DataGridTextColumn FontSize="24" Binding="{Binding Path= Rate}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="BackButton" Content="Назад" FontSize="36" Margin="0 60 0 0" Width="450" Click="BackButton_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

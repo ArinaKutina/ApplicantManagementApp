@@ -1,0 +1,32 @@
+﻿<Window x:Class="ApplicantManagementApp.Views.ListStatements"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ApplicantManagementApp.Views"
+        mc:Ignorable="d"
+        Title="Список заявлений абитуриентов" Height="1080" Width="1920" WindowState="Maximized">
+    <Grid>
+        <StackPanel>
+            <DataGrid x:Name="StatementsGrid" AutoGenerateColumns="False" Height="578">
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="в обработке" x:Name="InProcessButton" Click="InProcessButton_Click" />
+                        <MenuItem Header="одобрено" x:Name="YesButton" Click="YesButton_Click" />
+                        <MenuItem Header="отклонено" x:Name="NoButton" Click="NoButton_Click" />
+                        <MenuItem Header="зачислено" x:Name="EnrollButton" Click="EnrollButton_Click" />
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Фамилия" FontSize="19" Binding="{Binding Path= Users.surnameUser}" />
+                    <DataGridTextColumn Header="Имя" FontSize="19" Binding="{Binding Path= Users.nameUser}" />
+                    <DataGridTextColumn Header="Отчество" FontSize="19" Binding="{Binding Path= Users.patronimicUser}" />
+                    <DataGridTextColumn Header="Специальность" FontSize="19" Binding="{Binding Path= Speciality.nameSpeciality}" />
+                    <DataGridTextColumn Header="Статус заявления" FontSize="19" Binding="{Binding Path= Status.nameStatus}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="BackButton" Content="Назад" FontSize="36" Margin="0 340 0 0" Width="1136" Click="BackButton_Click" />
+
+        </StackPanel>
+    </Grid>
+</Window>

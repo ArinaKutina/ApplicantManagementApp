@@ -1,0 +1,27 @@
+﻿<Window x:Class="ApplicantManagementApp.Views.ListStatementsExams"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ApplicantManagementApp.Views"
+        mc:Ignorable="d"
+        Title="Просмотр заявок на вступительные экзамены" Height="1080" Width="1920" WindowState="Maximized">
+    <Grid>
+        <StackPanel>
+            <DataGrid  x:Name="ExamsGrid" AutoGenerateColumns="False" Height="746">
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Удалить заявку" x:Name="DeleteButton" Click="DeleteButton_Click" />
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+                <DataGrid.Columns>
+                    <DataGridTextColumn FontSize="24" Binding="{Binding Path= Speciality.nameSpeciality }" />
+                    <DataGridTextColumn FontSize="24" Binding="{Binding Path= Users.surnameUser}" />
+                    <DataGridTextColumn FontSize="24" Binding="{Binding Path= Users.nameUser}" />
+                    <DataGridTextColumn FontSize="24" Binding="{Binding Path= Users.patronimicUser}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="BackButton" Content="Назад" FontSize="36" Margin="0 200 0 0" Width="1136" Click="BackButton_Click" />
+        </StackPanel>
+    </Grid>
+</Window>
